@@ -26,13 +26,13 @@ en_core_sci_md @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.
 evaluate==0.4.3
 exceptiongroup==1.2.2
 filelock==3.17.0
-Flask==3.1.0
+Flask==2.0.1
 frozenlist==1.5.0
 fsspec==2024.12.0
 gitdb==4.0.12
 GitPython==3.1.44
 grpcio==1.70.0
-gunicorn==23.0.0
+gunicorn==20.1.0
 huggingface-hub==0.28.1
 idna==3.10
 importlib_metadata==8.6.1
@@ -77,14 +77,14 @@ pytest==8.3.4
 pytest-cov==6.0.0
 python-dateutil==2.9.0.post0
 pytz==2025.1
-PyYAML==6.0.2
+PyYAML==6.0
 regex==2023.10.3
 requests==2.32.3
 rouge_score==0.1.2
 safetensors==0.5.2
 scikit-learn==1.6.1
 scipy==1.10.1
-sentence-transformers==3.4.1
+sentence-transformers==2.2.2
 sentry-sdk==2.21.0
 setproctitle==1.3.4
 six==1.17.0
@@ -103,10 +103,10 @@ tokenizers==0.21.0
 toml==0.10.2
 tomli==2.2.1
 tomlkit==0.13.2
-torch==2.0.1
+torch==2.0.1 --index-url https://download.pytorch.org/whl/cpu
 torchvision==0.15.2
 tqdm==4.67.1
-transformers==4.48.3
+transformers==4.18.0
 ttkthemes==3.2.2
 typer==0.7.0
 typing_extensions==4.12.2
