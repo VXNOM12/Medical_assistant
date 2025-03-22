@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ```markdown
 # Medical AI Assistant
 
@@ -153,3 +154,6 @@ For issues, questions, or contributions:
 This README provides a comprehensive overview of the Medical AI Assistant, covering its purpose, technical details, installation instructions, ethical considerations, and contribution guidelines.
 
 Would you like me to elaborate on any specific section or provide additional details about the project?
+=======
+# Medical_assistant
+>>>>>>> 93dcb9d9044cacbaf0190b2c99c7cf6245f544a2
