@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ```markdown
 # Medical AI Assistant
 
@@ -156,4 +155,3 @@ This README provides a comprehensive overview of the Medical AI Assistant, cover
 Would you like me to elaborate on any specific section or provide additional details about the project?
 =======
 # Medical_assistant
->>>>>>> 93dcb9d9044cacbaf0190b2c99c7cf6245f544a2
