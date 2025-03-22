@@ -4,7 +4,7 @@ from datetime import datetime
 import logging
 
 # Import your medical chatbot
-from src.inference import EnhancedMedicalChatbot
+from src.inference import MedicalChatBot as EnhancedMedicalChatbot
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
