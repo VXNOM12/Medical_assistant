@@ -1,0 +1,34 @@
+# Model Configuration
+model_params:
+  primary_model: "google/flan-t5-large"  # Using flan-t5 as specified in data_config
+  secondary_model: "microsoft/BioGPT-Large"
+  backup_model: "facebook/bart-large"
+  
+  weights:
+    primary: 0.5
+    secondary: 0.3
+    backup: 0.2
+
+post_processing:
+  enable_grammar_check: true
+  medical_terms_path: "data/medical_knowledge/medical_terms.json"
+
+response_formatting:
+  enabled: true
+  required_sections: ["summary", "key_recommendations"]
+  disclaimer: "Individual needs vary. Consult a healthcare provider for personalized advice."
+
+# Generation Parameters
+max_length: 512
+temperature: 0.7
+top_p: 0.95
+repetition_penalty: 1.2
+
+# Resource Settings
+use_cuda: false
+use_half_precision: false
+
+# Response Settings
+min_response_length: 50
+max_response_length: 500
+include_sources: true

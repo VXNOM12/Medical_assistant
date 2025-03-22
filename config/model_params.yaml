@@ -1,0 +1,141 @@
+# Primary Model Architecture Configuration
+architecture:
+  # Base model specifications
+  model_type: "seq2seq"  # Sequence-to-sequence architecture for medical dialogue
+  backbone: "t5"  # Using T5 architecture for strong performance on medical text
+  hidden_size: 1024  # Size of hidden layers throughout the model
+  num_hidden_layers: 24  # Number of transformer layers
+  num_attention_heads: 16  # Number of attention heads per layer
+  intermediate_size: 4096  # Size of feed-forward layers
+  hidden_act: "gelu"  # Activation function for hidden layers
+  dropout_rate: 0.1  # Dropout rate for regularization
+  attention_dropout: 0.1  # Dropout rate specifically for attention layers
+  layer_norm_eps: 1e-6  # Epsilon for layer normalization
+  initializer_range: 0.02  # Range for weight initialization
+  
+  # Position encoding settings
+  max_position_embeddings: 512  # Maximum sequence length supported
+  position_embedding_type: "absolute"  # Type of positional embeddings
+  use_cache: true  # Whether to use past key/values for faster inference
+
+# Medical Domain Adaptation Parameters
+domain_adaptation:
+  # Vocabulary settings for medical terminology
+  vocab_size: 32128  # Extended vocabulary size to include medical terms
+  additional_tokens: 1000  # Extra tokens reserved for medical terminology
+  special_tokens:
+    - "[DIAGNOSIS]"
+    - "[SYMPTOMS]"
+    - "[TREATMENT]"
+    - "[MEDICATIONS]"
+    - "[CONTRAINDICATIONS]"
+    - "[DOSAGE]"
+    - "[SIDE_EFFECTS]"
+  
+  # Domain-specific processing
+  preserve_medical_entities: true  # Special handling for medical entities
+  entity_types:
+    - "DISEASE"
+    - "DRUG"
+    - "SYMPTOM"
+    - "TREATMENT"
+    - "PROCEDURE"
+    - "ANATOMY"
+    - "TEST"
+
+# Generation Parameters
+generation:
+  # Core generation settings
+  max_length: 512  # Maximum length of generated responses
+  min_length: 50  # Minimum length to ensure comprehensive answers
+  temperature: 0.7  # Controls randomness in generation (0.0-1.0)
+  top_p: 0.95  # Nucleus sampling parameter
+  top_k: 50  # Top-k sampling parameter
+  no_repeat_ngram_size: 3  # Prevents repetition of n-grams
+  num_beams: 4  # Number of beams for beam search
+  length_penalty: 1.0  # Encourages longer or shorter sequences
+  early_stopping: true  # Whether to stop when all beams are finished
+  
+  # Medical response constraints
+  response_formats:
+    diagnosis:
+      required_sections:
+        - "Symptoms Overview"
+        - "Possible Causes"
+        - "Recommended Actions"
+        - "Warning Signs"
+      min_section_length: 30
+    
+    treatment:
+      required_sections:
+        - "Treatment Options"
+        - "Expected Outcomes"
+        - "Side Effects"
+        - "Precautions"
+      min_section_length: 40
+
+# Model Optimization
+optimization:
+  # Memory and performance settings
+  attention_memory_efficient: true  # Use memory-efficient attention
+  gradient_checkpointing: false  # Trade computation for memory if needed
+  use_flash_attention: true  # Use flash attention when available
+  use_bettertransformer: true  # Use BetterTransformer optimizations
+  
+  # Quantization settings
+  quantization:
+    enabled: true
+    bits: 8  # Number of bits for quantization
+    type: "dynamic"  # Dynamic or static quantization
+    
+  # Caching settings
+  kv_cache:
+    enabled: true
+    max_batch_size: 32
+    cache_size: 2048
+
+# Safety and Compliance
+safety:
+  # Content filtering
+  content_filtering:
+    enabled: true
+    filter_medical_misinformation: true
+    require_medical_disclaimer: true
+    block_dangerous_advice: true
+  
+  # Response validation
+  validation:
+    check_medical_accuracy: true
+    verify_source_citations: true
+    ensure_safety_warnings: true
+    require_emergency_disclaimers: true
+
+# Inference Settings
+inference:
+  # Batch processing
+  batch_size: 16  # Maximum batch size for inference
+  parallel_processing: true  # Enable parallel processing
+  timeout: 30  # Maximum seconds per request
+  
+  # Response formatting
+  format_output: true  # Apply structured formatting to responses
+  include_confidence: true  # Include confidence scores
+  include_sources: true  # Include reference sources when available
+  
+  # Performance optimization
+  cache_responses: true  # Cache common responses
+  cache_size: 1000  # Number of responses to cache
+  preload_medical_knowledge: true  # Preload common medical information
+
+# Monitoring and Debugging
+monitoring:
+  # Performance tracking
+  track_inference_time: true
+  track_memory_usage: true
+  log_generation_params: true
+  
+  # Quality assurance
+  save_failed_generations: true
+  log_medical_terms_used: true
+  track_response_quality: true
+  monitor_safety_triggers: true

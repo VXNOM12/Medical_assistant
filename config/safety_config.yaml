@@ -1,0 +1,26 @@
+# Safety Configuration
+emergency_patterns:
+  - "heart attack"
+  - "stroke"
+  - "suicide"
+  - "emergency"
+  - "bleeding"
+  - "unconscious"
+  - "not breathing"
+  - "overdose"
+
+deny_words:
+  - "prescribe"
+  - "diagnosis"
+  - "illegal drugs"
+  - "treatment plan"
+  - "medical advice"
+
+emergency_response: "This appears to be a medical emergency. Please call emergency services (911 in the US) immediately or go to the nearest emergency room."
+
+denial_response: "I cannot provide specific medical advice, diagnoses, or prescriptions. Please consult a qualified healthcare professional for personalized medical guidance."
+
+# Response templates for common scenarios
+response_templates:
+  diet: "A balanced diet should include a variety of foods from all major food groups: proteins, carbohydrates, healthy fats, vitamins, and minerals. It's important to consume appropriate portions of each food group to maintain good health."
+  vitamins: "Vitamins are essential nutrients that your body needs to function properly. They play crucial roles in various bodily processes including metabolism, immune function, and cell growth."

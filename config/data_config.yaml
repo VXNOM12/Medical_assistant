@@ -1,0 +1,147 @@
+# Medical Dataset Configuration
+model_name: "google/flan-t5-large"
+max_length: 512
+
+# Auto-Loadable Datasets (No Manual Download Required)
+datasets:
+  # Primary Medical Question-Answering Datasets (Successfully Verified)
+  - name: "openlifescienceai/medmcqa"
+    config: null
+    split: "train"
+    samples: 75000
+    category: "Question-Answering"
+    description: "Medical Multiple Choice Question Answering Dataset"
+    auto_loadable: true
+    priority: 1.0
+
+  - name: "qiaojin/PubMedQA"
+    config: "pqa_labeled"
+    split: "train"
+    samples: 40000
+    category: "Question-Answering"
+    description: "PubMed Question Answering Dataset"
+    auto_loadable: true
+    priority: 0.95
+
+# Datasets Requiring Manual Download
+# These datasets are commented out by default and should be uncommented after manual downloading
+# See the instructions in the "manual_dataset_instructions" section
+manual_datasets:
+  # Clinical Conversations Dataset
+  - name: "medical_dialog"
+    config: "en"
+    split: "train"
+    samples: 25000
+    category: "Clinical Dialogues"
+    description: "English Medical Conversation Dialogues"
+    auto_loadable: false
+    download_url: "https://drive.google.com/drive/folders/1g29ssimdZ6JzTST6Y8g6h-ogUNReBtJD"
+    data_dir: "path/to/Medical-Dialogue-Dataset-English"  # Update with actual path after download
+
+  # Other Datasets Requiring Manual Steps (Not Verified)
+  - name: "bigbio/mediqa"
+    config: "mediqa_source" 
+    split: "train"
+    samples: 15000
+    category: "Question-Answering"
+    description: "Medical Information and Question Answering"
+    auto_loadable: false
+    
+  - name: "bigbio/bioasq"
+    config: "bioasq_source"
+    split: "train"
+    samples: 20000
+    category: "Medical Research"
+    description: "Biomedical Question Answering Dataset"
+    auto_loadable: false
+    
+  - name: "covid_qa_deepset"
+    config: null
+    split: "train"
+    samples: 10000
+    category: "Specialized Topics"
+    description: "COVID-19 Related Question Answering"
+    auto_loadable: false
+    
+  - name: "who_guidelines_qa"
+    config: null
+    split: "train"
+    samples: 20000
+    category: "Medical Guidelines"
+    description: "World Health Organization Medical Guidelines"
+    auto_loadable: false
+    
+  - name: "medical_ethics_qa"
+    config: null
+    split: "train"
+    samples: 10000
+    category: "Specialized Topics"
+    description: "Medical Ethics Question Answering"
+    auto_loadable: false
+    
+  - name: "clinical_cases"
+    config: null
+    split: "train"
+    samples: 20000
+    category: "Clinical Documentation"
+    description: "Diverse Clinical Case Studies"
+    auto_loadable: false
+    
+  - name: "mimic3_notes"
+    config: null
+    split: "train"
+    samples: 50000
+    category: "Clinical Documentation"
+    description: "Medical Intensive Care Unit Clinical Notes"
+    auto_loadable: false
+
+# Manual Dataset Instructions
+manual_dataset_instructions:
+  - dataset: "medical_dialog"
+    instructions: >
+      1. Download from: https://drive.google.com/drive/folders/1g29ssimdZ6JzTST6Y8g6h-ogUNReBtJD
+      2. Extract the downloaded .zip file to get the "Medical-Dialogue-Dataset-English" folder
+      3. Place this folder in your project's data directory
+      4. Update the "data_dir" in this config to point to the actual location
+      5. In your code, use: load_dataset("medical_dialog", name="en", data_dir=data_dir)
+      6. Uncomment the dataset entry in the main datasets list after completing these steps
+
+# Fallback Content Configuration
+fallback_content:
+  enabled: true  # Enable the fallback content system
+  topics:
+    - id: "water_intake"
+      keywords: ["water", "hydration", "drink", "fluid"]
+    - id: "blood_pressure"
+      keywords: ["blood pressure", "hypertension", "bp"]
+    - id: "heart_health"
+      keywords: ["heart", "cardiovascular", "cardiac"]
+    - id: "medications"
+      keywords: ["medicine", "drug", "medication", "pill"]
+    - id: "allergies"
+      keywords: ["allergy", "allergies", "seasonal", "hay fever"]
+
+# Training Hyperparameters Optimized for Medical Datasets
+training_params:
+  batch_size: 16
+  learning_rate: 2e-5
+  num_epochs: 3
+  warmup_steps: 500
+  gradient_accumulation_steps: 4
+  weight_decay: 0.01
+
+# Data Processing Configuration
+preprocessing:
+  remove_pii: true
+  standardize_terminology: true
+  max_sequence_length: 512
+  text_cleaning:
+    lowercase: true
+    remove_special_chars: true
+    remove_numeric_identifiers: true
+
+# Quality Control Parameters
+quality_control:
+  min_text_length: 10
+  max_text_length: 1024
+  duplicate_threshold: 0.95
