@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-<<<<<<< Updated upstream
-# Install system dependencies needed for numpy, scipy, etc.
-apt-get update
-apt-get install -y build-essential gfortran libopenblas-dev
-
-# Continue with the normal build process
-pip install -r requirements.txt
-=======
 echo "Installing system dependencies for scientific Python packages..."
 
 # Update package lists
@@ -23,4 +15,3 @@ pip install --only-binary=numpy,scipy numpy scipy
 
 # Install the rest of the requirements
 pip install -r requirements.txt
->>>>>>> Stashed changes
