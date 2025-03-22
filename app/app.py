@@ -3,8 +3,7 @@ import os
 from datetime import datetime
 import logging
 
-# Import your medical chatbot
-from src.inference import MedicalChatBot as EnhancedMedicalChatbot
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -14,7 +13,8 @@ app = Flask(__name__)
 
 # Initialize the chatbot
 try:
-    chatbot = EnhancedMedicalChatbot()
+    from src.inference import MedicalChatBot
+    chatbot = MedicalChatBot()
     logger.info("Medical chatbot initialized successfully")
 except Exception as e:
     logger.error(f"Error initializing chatbot: {e}")
@@ -76,7 +76,9 @@ def chat():
             'message': 'An error occurred while processing your request. Please try again.'
         }), 500
 
-if __name__ == '__main__':
-    # Get port from environment variable or use 5000 as default
+# At the end of app.py
+if __name__ == "__main__":
+    print("Flask app is named:", app)
+    print("App is located at:", __file__)
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
