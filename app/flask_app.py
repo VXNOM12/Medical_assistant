@@ -1,17 +1,17 @@
+# Flask_app.py
 from flask import Flask, render_template, request, jsonify
 import os
-from datetime import datetime
 import logging
+from datetime import datetime
 
-
-
-# Configure logging
+# Configure logging first
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Create Flask app BEFORE any other imports that might fail
 app = Flask(__name__)
 
-# Initialize the chatbot
+# AFTER defining app, try imports that might fail
 try:
     from src.inference import MedicalChatBot
     chatbot = MedicalChatBot()
@@ -32,9 +32,11 @@ example_questions = [
 
 @app.route('/')
 def home():
-    """Render the main chat interface."""
-    return render_template('index.html', examples=example_questions)
-
+    if chatbot:
+        return render_template('index.html', examples=example_questions)
+    else:
+        return "Medical chatbot is initializing. Please check back later."
+    
 @app.route('/about')
 def about():
     """Render the about page with project information."""
