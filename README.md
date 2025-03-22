@@ -150,8 +150,4 @@ For issues, questions, or contributions:
 - Open-Source Community
 ```
 
-This README provides a comprehensive overview of the Medical AI Assistant, covering its purpose, technical details, installation instructions, ethical considerations, and contribution guidelines.
 
-Would you like me to elaborate on any specific section or provide additional details about the project?
-=======
-# Medical_assistant
