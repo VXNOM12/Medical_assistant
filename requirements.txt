@@ -1,16 +1,26 @@
-﻿# Web server
+﻿# Web server components
 Flask==2.0.1
 gunicorn==20.1.0
 Werkzeug==2.0.3
 Jinja2==3.0.3
 itsdangerous==2.0.1
 
-# ML dependencies (already installed, listing for completeness)
-numpy
-torch
-torchvision
+# Core data science dependencies (using versions with pre-built wheels)
+numpy==1.23.5
+pandas==1.5.3
+scikit-learn==1.0.2
 
-# Project dependencies
+# PyTorch (CPU version will be installed separately)
+# Do not include torch/torchvision here to avoid compilation issues
+
+# NLP components with version constraints to avoid compilation
 transformers==4.18.0
+tokenizers==0.12.1
 sentence-transformers==2.2.2
+
+# Utilities and support libraries
 PyYAML==6.0
+tqdm==4.64.1
+requests==2.28.2
+urllib3==1.26.15
+pillow==9.5.0

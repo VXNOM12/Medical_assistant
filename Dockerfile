@@ -1,22 +1,15 @@
 FROM python:3.9-slim
 
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=/app
-ENV PORT=8000
-
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+# Install pre-built packages
+RUN pip install --no-cache-dir flask gunicorn transformers torch torchvision --extra-index-url https://download.pytorch.org/whl/cpu
 
+# Copy your application code
 COPY . .
 
-# Create required directories
-RUN mkdir -p /app/data /app/logs /app/models /app/static /app/templates
-
 # Expose port
-EXPOSE 8000
+EXPOSE 10000
 
-# Run the application with Gunicorn
-CMD gunicorn --workers=2 --bind=0.0.0.0:$PORT app:app
+# Command to run the application
+CMD ["gunicorn", "wsgi:app", "--bind", "0.0.0.0:10000"]
