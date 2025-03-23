@@ -5,7 +5,7 @@ import threading
 import time
 import json
 import uuid
-import waitress
+
 from flask import Flask, render_template, request, jsonify, session
 
 # Add project root to Python path - MUST BE BEFORE OTHER IMPORTS
@@ -25,7 +25,7 @@ from src.response_templates import ResponseEnhancer
 from src.inference import EnhancedMedicalChatbot as MedicalChatBot
 from src.model.medical_model import MedicalModel
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='static/templates')
 app.secret_key = str(uuid.uuid4())  # Generate a random secret key
 
 # Initialize the medical chatbot
@@ -56,9 +56,10 @@ def index():
         session['conversation_active'] = False
         session['chat_history'] = []
     
+    # Moved return outside the if block
     return render_template('index.html', 
-                          example_questions=EXAMPLE_QUESTIONS, 
-                          conversation_id=session['conversation_id'])
+                   example_questions=EXAMPLE_QUESTIONS, 
+                   conversation_id=session['conversation_id'])
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
@@ -194,5 +195,4 @@ def get_chat_history():
     })
 
 if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=5000)
+    app.run(debug=True, host="0.0.0.0", port=5000)

@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block title %}About Medical AI Assistant{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">About This Project</h5>
+            </div>
+            <div class="card-body">
+                <h4>Medical AI Assistant</h4>
+                <p class="lead">A final year project demonstrating the application of natural language processing in healthcare education.</p>
+                
+                <hr>
+                
+                <h5>Project Overview</h5>
+                <p>
+                    This Medical AI Assistant was developed as a final year project to explore how artificial intelligence can be used to provide educational information about general health topics. The system uses advanced natural language processing techniques to understand health-related questions and generate informative responses.
+                </p>
+                
+                <h5>Key Features</h5>
+                <ul>
+                    <li>Natural language understanding for medical queries</li>
+                    <li>Educational responses based on reliable health information</li>
+                    <li>Safety filters to ensure appropriate information sharing</li>
+                    <li>User-friendly interface for easy interaction</li>
+                </ul>
+                
+                <h5>Technology Stack</h5>
+                <p>This project was built using the following technologies:</p>
+                <ul>
+                    <li><strong>Backend:</strong> Python, Flask</li>
+                    <li><strong>Natural Language Processing:</strong> Transformers, NLTK, SpaCy</li>
+                    <li><strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap</li>
+                    <li><strong>Deployment:</strong> Heroku</li>
+                </ul>
+                
+                <h5>Limitations and Ethical Considerations</h5>
+                <p>
+                    This assistant is designed for educational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. The system has several important limitations:
+                </p>
+                <ul>
+                    <li>It cannot diagnose medical conditions</li>
+                    <li>It does not have access to personal medical information</li>
+                    <li>It may not be aware of the latest medical research</li>
+                    <li>It cannot prescribe medications or treatments</li>
+                </ul>
+                <p>
+                    Always consult with qualified healthcare professionals for medical concerns.
+                </p>
+                
+                <h5>About the Developer</h5>
+                <p>
+                    This project was developed by [Your Name] as part of a final year project for [Your University/Institution]. The work represents an exploration of how artificial intelligence can be used to make medical information more accessible while respecting the important boundaries between information sharing and professional medical advice.
+                </p>
+                
+                <div class="mt-4">
+                    <a href="/" class="btn btn-primary">Return to Chat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
