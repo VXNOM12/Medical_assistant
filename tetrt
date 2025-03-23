@@ -1,0 +1,47 @@
+I'll help you identify and recover all files that likely contain code or configurations. Here are the key files by category:
+
+1. Source Code Files (Python):
+```bash
+git checkout HEAD^ -- src/__init__.py
+git checkout HEAD^ -- src/inference.py
+git checkout HEAD^ -- src/data_handling.py
+git checkout HEAD^ -- src/data_processing.py
+git checkout HEAD^ -- src/medical_terms_processor.py
+git checkout HEAD^ -- src/train_model.py
+git checkout HEAD^ -- src/safety_filters.py
+git checkout HEAD^ -- src/models/__init__.py
+git checkout HEAD^ -- src/models/medical_model.py
+git checkout HEAD^ -- src/utils/__init__.py
+```
+
+2. Configuration Files:
+```bash
+git checkout HEAD^ -- requirements.txt
+git checkout HEAD^ -- pyvenv.cfg
+```
+
+3. Web/Template Files:
+```bash
+git checkout HEAD^ -- static/templates/index.html
+```
+
+4. Resource Files:
+```bash
+git checkout HEAD^ -- questions
+```
+
+You can restore all of these at once with:
+```bash
+git checkout HEAD^ -- src/ requirements.txt pyvenv.cfg static/templates/index.html questions
+```
+
+Note: The `myenv` directory contains your virtual environment - rather than restoring it, it's better to recreate it:
+```bash
+python -m venv myenv
+source myenv/bin/activate  # On Unix/Mac
+# or
+myenv\Scripts\activate     # On Windows
+pip install -r requirements.txt
+```
+
+Would you like me to help you with any specific part of the restoration process?

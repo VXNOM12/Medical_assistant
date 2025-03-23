@@ -43,7 +43,7 @@ Medical AI Assistant is an advanced, open-source medical information chatbot des
 
 1. Clone the repository
 ```bash
-git clone https://github.com/VXNOM12/medical-ai-assistant.git
+git clone https://github.com/yourusername/medical-ai-assistant.git
 cd medical-ai-assistant
 ```
 
@@ -149,3 +149,7 @@ For issues, questions, or contributions:
 - Medical Dataset Providers
 - Open-Source Community
 ```
+
+This README provides a comprehensive overview of the Medical AI Assistant, covering its purpose, technical details, installation instructions, ethical considerations, and contribution guidelines.
+
+Would you like me to elaborate on any specific section or provide additional details about the project?

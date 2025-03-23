@@ -1,0 +1,70 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Medical AI Assistant</h1>
+            <p class="subtitle">Ask general health questions (Not for emergencies or diagnoses)</p>
+        </header>
+        
+        <main>
+            <div class="chat-container">
+                <div id="chat-display">
+                    <div class="system-message">
+                        <span class="sender system">System:</span>
+                        <span class="message">Welcome to the Medical AI Assistant. How can I help you today?</span>
+                    </div>
+                    <!-- Chat messages will be displayed here -->
+                </div>
+                
+                <div class="status-container">
+                    <div id="status-indicator"></div>
+                    <div id="conversation-id"></div>
+                </div>
+                
+                <div class="input-container">
+                    <input type="text" id="message-input" placeholder="Type your health question here...">
+                    <button id="send-button" class="button send-button">
+                        <i class="fas fa-paper-plane"></i> Send
+                    </button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="new-conversation-button" class="button new-button">
+                        <i class="fas fa-plus-circle"></i> New Conversation
+                    </button>
+                    <button id="clear-button" class="button clear-button">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+            </div>
+            
+            <div class="examples-container">
+                <h2>Example Questions</h2>
+                <div class="examples-grid">
+                    {% for question in example_questions %}
+                    <button class="example-button">{{ question }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="status-bar">
+                <span id="connection-status">AI Assistant Ready</span>
+                <span id="time-display"></span>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

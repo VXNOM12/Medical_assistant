@@ -1,0 +1,60 @@
+{
+    "conditions": {
+        "common_cold": {
+            "symptoms": [
+                "runny nose",
+                "sneezing",
+                "congestion",
+                "sore throat",
+                "cough",
+                "mild fatigue"
+            ],
+            "treatments": [
+                "rest",
+                "staying hydrated",
+                "over-the-counter decongestants",
+                "pain relievers"
+            ],
+            "causes": [
+                "rhinovirus",
+                "coronavirus",
+                "respiratory syncytial virus"
+            ],
+            "prevention": [
+                "frequent hand washing",
+                "avoiding close contact with sick people",
+                "maintaining good hygiene",
+                "getting adequate sleep"
+            ]
+        },
+        "hypertension": {
+            "symptoms": [
+                "headaches",
+                "shortness of breath",
+                "nosebleeds",
+                "chest pain",
+                "dizziness"
+            ],
+            "treatments": [
+                "lifestyle changes",
+                "blood pressure medications",
+                "regular monitoring",
+                "diet modifications"
+            ],
+            "causes": [
+                "genetics",
+                "poor diet",
+                "lack of exercise",
+                "stress",
+                "obesity"
+            ],
+            "prevention": [
+                "regular exercise",
+                "healthy diet",
+                "stress management",
+                "limiting alcohol",
+                "maintaining healthy weight"
+            ]
+        }
+    }
+}

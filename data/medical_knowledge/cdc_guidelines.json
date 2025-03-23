@@ -1,0 +1,12 @@
+{
+    "guidelines": [
+      {
+        "source": "CDC Cholesterol Management 2023",
+        "text": "Adults should maintain LDL cholesterol below 100 mg/dL. Regular screening recommended starting at age 20. Dietary focus on soluble fiber and unsaturated fats."
+      },
+      {
+        "source": "NIH Hydration Guidelines",
+        "text": "Average daily fluid intake: 3.7L for men, 2.7L for women. Adjust for activity level and climate. Monitor urine color as hydration indicator."
+      }
+    ]
+  }

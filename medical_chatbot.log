@@ -1,0 +1,22 @@
+2025-02-15 10:56:21,299 - ERROR - Error loading inference_config.yaml: [Errno 2] No such file or directory: 'E:\\MEDICO-CHATBOT\\config\\inference_config.yaml'
+2025-02-15 10:56:21,315 - INFO - Successfully loaded data_config.yaml
+2025-02-15 10:56:21,316 - ERROR - Error loading safety_config.yaml: [Errno 2] No such file or directory: 'E:\\MEDICO-CHATBOT\\config\\safety_config.yaml'
+2025-02-15 10:56:21,316 - INFO - Initializing model...
+2025-02-15 10:58:14,927 - INFO - Successfully loaded inference_config.yaml
+2025-02-15 10:58:14,935 - INFO - Successfully loaded data_config.yaml
+2025-02-15 10:58:14,938 - INFO - Successfully loaded safety_config.yaml
+2025-02-15 10:58:14,939 - INFO - Initializing model...
+2025-02-15 10:58:16,864 - INFO - Successfully initialized google/flan-t5-large
+2025-02-15 10:58:16,868 - INFO - Use pytorch device_name: cpu
+2025-02-15 10:58:16,868 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-02-15 10:58:22,139 - INFO - Prepared knowledge base from 10 domains with 320000 total samples
+2025-02-15 10:58:22,139 - INFO - Medical ChatBot initialization complete
+2025-02-15 11:09:04,236 - INFO - Successfully loaded inference_config.yaml
+2025-02-15 11:09:04,244 - INFO - Successfully loaded data_config.yaml
+2025-02-15 11:09:04,246 - INFO - Successfully loaded safety_config.yaml
+2025-02-15 11:09:04,247 - INFO - Initializing model...
+2025-02-15 11:09:05,593 - INFO - Successfully initialized google/flan-t5-large
+2025-02-15 11:09:05,597 - INFO - Use pytorch device_name: cpu
+2025-02-15 11:09:05,597 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-02-15 11:09:09,172 - INFO - Prepared knowledge base from 10 domains with 320000 total samples
+2025-02-15 11:09:09,172 - INFO - Medical ChatBot initialization complete
