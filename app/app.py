@@ -5,6 +5,7 @@ import threading
 import time
 import json
 import uuid
+import waitress
 from flask import Flask, render_template, request, jsonify, session
 
 # Add project root to Python path - MUST BE BEFORE OTHER IMPORTS
@@ -192,5 +193,6 @@ def get_chat_history():
         'awaiting_follow_up': session.get('awaiting_follow_up', False)
     })
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=5000)
