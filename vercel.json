@@ -3,18 +3,15 @@
     "builds": [
       {
         "src": "app.py",
-        "use": "@vercel/python"
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "50mb" }
       },
       {
-        "src": "static/js/script.js",
+        "src": "static/**/*",
         "use": "@vercel/static"
       },
       {
-        "src": "static/css/styles.css",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "templates/index.html",
+        "src": "templates/**/*",
         "use": "@vercel/static"
       }
     ],
